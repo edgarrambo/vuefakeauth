@@ -28,13 +28,16 @@ const { isAuthenticated, logout } = useAuth();
         :to="{ path: '/login', name: 'Login'}">
         <li class="px-4 py-8 hover:cursor-pointer hover:bg-white hover:text-yellow-800">Login</li>
         </router-link>
-     
-        <router-link v-else to="/secret">
+
+        <div v-else class="flex">
+      <router-link  :to="{ path: '/secret', name: 'Secret'}">
         <li class="px-4 py-8 hover:cursor-pointer hover:bg-white hover:text-yellow-800">Secret</li>
         </router-link> 
-        <button @click="logout" >
+        <button @click="logout">
         <li class="px-4 py-8 hover:cursor-pointer hover:bg-white hover:text-yellow-800">Log Out</li>
         </button>
+        </div>
+  
     </ul>
     </nav>
 </div>

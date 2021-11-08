@@ -29,7 +29,7 @@ const routes = [
     beforeEnter: (to, from, next) => {
       // reject the navigation
       next("/");
-      // return false;
+      //return false;
     },
   },
   {

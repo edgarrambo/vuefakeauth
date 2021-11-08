@@ -11,7 +11,7 @@ const usersFromDB = [
 
 const useAuth = () => {
   const login = (username, password) => {
-    const user = username.find(
+    const user = usersFromDB.find(
       (user) => user.username === username && user.password
     );
 
