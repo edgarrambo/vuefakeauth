@@ -1,3 +1,9 @@
+<script setup>
+import useAuth from "../composable/useAuth";
+const { isAuthenticated, logout } = useAuth();
+</script>
+
+
 <template>
 <div class="font-extrabold text-yellow-500 bg-blue-800 ">
 <div class="container flex items-center justify-between mx-auto ">
@@ -17,12 +23,18 @@
         <router-link :to="{name: 'About'}">
          <li class="px-4 py-8 hover:cursor-pointer hover:bg-white hover:text-yellow-800">About</li>
         </router-link>
-        <router-link :to="{ path: '/login', name: 'Login'}">
+        <router-link 
+        v-if="!isAuthenticated"
+        :to="{ path: '/login', name: 'Login'}">
         <li class="px-4 py-8 hover:cursor-pointer hover:bg-white hover:text-yellow-800">Login</li>
         </router-link>
-        <router-link to="/secret">
+     
+        <router-link v-else to="/secret">
         <li class="px-4 py-8 hover:cursor-pointer hover:bg-white hover:text-yellow-800">Secret</li>
-        </router-link>
+        </router-link> 
+        <button @click="logout" >
+        <li class="px-4 py-8 hover:cursor-pointer hover:bg-white hover:text-yellow-800">Log Out</li>
+        </button>
     </ul>
     </nav>
 </div>
