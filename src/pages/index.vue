@@ -1,3 +1,12 @@
+<script setup>
+
+</script>
+
 <template>
-    <h1>Homepage</h1>
+<div class="flex flex-col items-center justify-center space-y-12 h-screen-nonav">
+<h1 class="text-6xl tracking-tighter font-extralight">Ho Ho Ho Homepage</h1>
+       <!-- <img class="h-32" src="../assets/bgindex.png" alt="Hello Holidays">  -->
+
+   
+</div>
 </template>
