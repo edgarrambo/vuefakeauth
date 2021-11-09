@@ -6,18 +6,18 @@ const user = ref("");
 
 const usersFromDB = [
   { username: "admin", password: "admin", name: "Administrator" },
-  { username: "Edgar", password: "password", name: "edgar" },
+  { username: "edgar", password: "password", name: "Edgar" },
 ];
 
 const useAuth = () => {
   const login = (username, password) => {
-    const user = usersFromDB.find(
+    const userFromDB = usersFromDB.find(
       (user) => user.username === username && user.password
     );
 
-    if (user) {
+    if (userFromDB) {
       isAuthenticated.value = true;
-      user.value = user.name;
+      user.value = userFromDB.name;
     }
   };
 

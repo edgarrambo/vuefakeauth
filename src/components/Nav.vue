@@ -1,6 +1,14 @@
 <script setup>
+import useRouter from "vue-router";
 import useAuth from "../composable/useAuth";
 const { isAuthenticated, logout } = useAuth();
+
+const router = useRouter();
+
+const loggingOut = () => {
+    logout()
+    router.push("/");
+}
 </script>
 
 
