@@ -2,6 +2,7 @@
 import {ref} from "vue";
 import { useRouter} from "vue-router";
 import useAuth from "../composable/useAuth";
+import useError from "../composable/useError";
 
 
 const { isAuthenticated, login } = useAuth();
@@ -11,12 +12,17 @@ const password = ref("");
 
 const router = useRouter();
 
+
 const logginIn = () => {
    login(username.value, password.value);
    if (isAuthenticated.value) {
       router.push("/");
+   } else {
+      setError("Invalid Username or Password");
    }
 };
+
+const {error, setError } = useError();
 
 </script>
 
@@ -36,5 +42,8 @@ Logged in: {{ isAuthenticated}}
        </button>
        </form>
    </div>
-   </div> 
+   <div v-if="error"
+   class="absolute w-1/2 px-4 text-center text-red-800 bg-red-300 rounded-lg top-4 center-4">{{ error }}</div>
+   </div>
+
 </template>
