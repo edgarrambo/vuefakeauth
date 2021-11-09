@@ -24,6 +24,9 @@ const logginIn = () => {
 
 const {error, setError } = useError();
 
+import { useTimeout, promiseTimeout } from "@vueuse/core";
+
+const {ready, start, stop} = useTimeout(5000, {controls: true});
 </script>
 
 <template>
@@ -37,12 +40,12 @@ Logged in: {{ isAuthenticated}}
        <input type="password" class="py-2 border-2 rounded-lg" placeholder="Password" v-model="password"/>
        <button type="submit" @submit.prevent="logginIn" 
        
-       class="py-2 text-indigo-200 bg-indigo-600 rounded-lg" >
+       class="py-2 text-yellow-500 bg-blue-800 rounded-lg" >
        Login
        </button>
        </form>
    </div>
-   <div v-if="error"
+   <div v-if="!ready && error"
    class="absolute w-1/2 px-4 text-center text-red-800 bg-red-300 rounded-lg top-4 center-4">{{ error }}</div>
    </div>
 

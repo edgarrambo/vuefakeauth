@@ -10,7 +10,7 @@ class="text-6xl tracking-tighter font-extralight">Merry Christmas! Please Login 
 <h1 v-else class="text-6xl tracking-tighter font-extralight">Merry Christmas! Welcome <span v-if="isAuthenticated">{{user}}</span></h1>
 
 
-<img src="../assets/bgindex.png" alt="Hello Holidays"> 
+<img class="h-64" src="../assets/bgindex.png" alt="Hello Holidays"> 
 
    
 </div>
